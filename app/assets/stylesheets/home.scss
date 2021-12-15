@@ -18,8 +18,10 @@ main.calculator-container {
   .display {
     border-radius: 0.2rem;
     border: 1px solid black;
+    box-sizing: border-box;
     padding: 0.5rem;
     text-align: right;
+    width: 100%;
   }
 
   .button-row {
@@ -28,7 +30,7 @@ main.calculator-container {
     margin-top: 0.3rem;
     width: 100%;
 
-    > button {
+    > button, > input[type=submit] {
       width: 23.5%;
       height: 2.5rem;
     }

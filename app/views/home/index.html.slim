@@ -1,17 +1,22 @@
 main.calculator-container
   section.calculator data={ controller: 'calculator' }
-    .display data={ 'calculator-target': 'display' } 0
-    .button-row
-      - %w[7 8 9 /].each do |caption|
-        button data={ action: 'calculator#addDigit' } = caption
-    .button-row
-      - %w[4 5 6 *].each do |caption|
-        button data={ action: 'calculator#addDigit' } = caption
-    .button-row
-      - %w[1 2 3 -].each do |caption|
-        button data={ action: 'calculator#addDigit' } = caption
-    .button-row
-      button data={ action: 'calculator#clear' } C
-      button data={ action: 'calculator#addDigit' } 0
-      button= '='
-      button data={ action: 'calculator#addDigit' } +
+    = form_with url: '/calculate', data: { 'turbo-frame': 'expression_frame' } do |f|
+      turbo-frame#expression_frame
+        = f.text_field :expression,
+          class: 'display',
+          value: 0,
+          data: { 'calculator-target': 'display' }
+      .button-row
+        - %w[7 8 9 /].each do |caption|
+          button type="button" data={ action: 'calculator#addDigit' } = caption
+      .button-row
+        - %w[4 5 6 *].each do |caption|
+          button type="button" data={ action: 'calculator#addDigit' } = caption
+      .button-row
+        - %w[1 2 3 -].each do |caption|
+          button type="button" data={ action: 'calculator#addDigit' } = caption
+      .button-row
+        button type="button" data={ action: 'calculator#clear' } C
+        button type="button" data={ action: 'calculator#addDigit' } 0
+        = f.submit '='
+        button type="button" data={ action: 'calculator#addDigit' } +

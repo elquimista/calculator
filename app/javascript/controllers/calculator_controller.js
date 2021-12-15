@@ -4,13 +4,20 @@ export default class extends Controller {
   static targets = ['display']
 
   addDigit(e) {
-    if (this.displayTarget.innerText === '0') {
-      this.displayTarget.innerText = ''
+    if (
+      this._isDigit(e.target.innerText) &&
+      this.displayTarget.value === '0'
+    ) {
+      this.displayTarget.value = ''
     }
-    this.displayTarget.innerText += e.target.innerText
+    this.displayTarget.value += e.target.innerText
   }
 
   clear() {
-    this.displayTarget.innerText = '0'
+    this.displayTarget.value = '0'
+  }
+
+  _isDigit(char) {
+    return char >= '0' && char <= '9'
   }
 }
