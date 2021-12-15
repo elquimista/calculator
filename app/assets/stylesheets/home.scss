@@ -1,3 +1,36 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+main.calculator-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+
+  section.calculator {
+    max-width: 75%;
+    width: 280px;
+  }
+
+  .display {
+    border-radius: 0.2rem;
+    border: 1px solid black;
+    padding: 0.5rem;
+    text-align: right;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    width: 100%;
+
+    > button {
+      width: 23.5%;
+      height: 2.5rem;
+    }
+  }
+}
